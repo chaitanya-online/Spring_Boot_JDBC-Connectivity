@@ -27,7 +27,7 @@ public class JDBC_Controller {
 		
 		
 
-		return "Data Inserted";
+		return "Data Inserted sucessfully";
 
 	}
 
