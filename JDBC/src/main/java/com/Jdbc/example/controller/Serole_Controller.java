@@ -2,6 +2,8 @@ package com.Jdbc.example.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +20,11 @@ import com.Jdbc.example.Entity.Serole;
 public class Serole_Controller {
 	@Autowired
 	SeroleRepository serolerepository;
+	private static final Logger LOG = LoggerFactory.getLogger(Serole_Controller.class);
 
 	@PostMapping("/SaveEmployee")
 	public Serole saveEmployee(@RequestBody Serole serole) {
+		LOG.info("Save");
 		return serolerepository.saveEmployee(serole);
 	}
 
@@ -36,9 +40,10 @@ public class Serole_Controller {
 
 	@GetMapping("/GetEmployee")
 	public Serole getEmployeeById(@RequestBody Serole serole) {
-
-		return serolerepository.getEmployeeById(serole);
+		LOG.info("GotEmployees");
 		
+		return serolerepository.getEmployeeById(serole);
+
 	}
 
 	@DeleteMapping("/DeleteById/{id}")
